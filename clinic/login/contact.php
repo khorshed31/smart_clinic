@@ -29,7 +29,7 @@ echo "<script>window.location.href ='contact.php'</script>";
 				<div class="wrap">
 				<!--start-logo-->
 				<div class="logo">
-		<a href="index.html" style="font-size: 30px;">Hospital Management system</a> 
+		<a href="index.html" style="font-size: 30px;">Smart Clinic</a>
 				</div>
 				<!--end-logo-->
 				<!--start-top-nav-->
@@ -55,7 +55,7 @@ echo "<script>window.location.href ='contact.php'</script>";
 				     	<h2>Hospital Address  :</h2>
 						    	<p>500 Lorem Ipsum Dolor Sit,</p>
 						   		<p>22-56-2-9 Sit Amet, Lorem,</p>
-						   		<p>India</p>
+						   		<p>Bangladesh</p>
 				   		<p>Phone:(00) 222 666 444</p>
 				   		<p>Fax: (000) 000 00 00 0</p>
 				 	 	<p>Email: <span>info@mycompany.com</span></p>

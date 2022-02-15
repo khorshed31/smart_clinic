@@ -4,11 +4,16 @@ if(isset($_POST['submit']))
 {
 $fname=$_POST['full_name'];
 $address=$_POST['address'];
+$age=$_POST['age'];
 $city=$_POST['city'];
+$blood=$_POST['blood'];
+$phone=$_POST['phone'];
 $gender=$_POST['gender'];
+$height=$_POST['height'];
+$width=$_POST['width'];
 $email=$_POST['email'];
 $password=md5($_POST['password']);
-$query=mysqli_query($con,"insert into users(fullname,address,city,gender,email,password) values('$fname','$address','$city','$gender','$email','$password')");
+$query=mysqli_query($con,"insert into users(fullname,address,city,age,blood,phone,height,width,gender,email,password) values('$fname','$address','$city','$age','$blood','$phone','$height','$width','$gender','$email','$password')");
 if($query)
 {
 	echo "<script>alert('Successfully Registered. You can login now');</script>";
@@ -77,6 +82,25 @@ return true;
 							<div class="form-group">
 								<input type="text" class="form-control" name="city" placeholder="City" required>
 							</div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="age" placeholder="Enter Age" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="block">
+                                    Blood Group
+                                </label>
+                                <select name="blood" id=""class="form-control">
+                                    <option>--Select Blood Group</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                </select>
+                            </div>
 							<div class="form-group">
 								<label class="block">
 									Gender
@@ -92,6 +116,15 @@ return true;
 									</label>
 								</div>
 							</div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="phone" placeholder="Contact Number" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="height" placeholder="Height(Feet)" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="width" placeholder="width(KG)" required>
+                            </div>
 							<p>
 								Enter your account details below:
 							</p>
