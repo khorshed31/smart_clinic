@@ -10,6 +10,12 @@ if(isset($_GET['del']))
 		          mysqli_query($con,"delete from users where userId = '".$_GET['id']."'");
                   $_SESSION['msg']="data deleted !!";
 		  }
+
+if(isset($_GET['app'])){
+
+    mysqli_query($con,"update users set status = 1 where userId = '".$_GET['aid']."'");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,6 +84,7 @@ if(isset($_GET['del']))
 												<th>Email </th>
 												<th>Creation Date </th>
 												<th>Updation Date </th>
+                                                <th>Status</th>
 												<th>Action</th>
 												
 											</tr>
@@ -88,6 +95,7 @@ $sql=mysqli_query($con,"select * from users");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
+    $status = $row['status'];
 ?>
 
 											<tr>
@@ -101,11 +109,18 @@ while($row=mysqli_fetch_array($sql))
 												<td><?php echo $row['regDate'];?></td>
 												<td><?php echo $row['updationDate'];?>
 												</td>
+                                                <td><?php echo ($status == 1) ? 'Approved' : 'Not Approved' ?></td>
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
 							
 													
-	<a href="manage-users.php?id=<?php echo $row['userId']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+	<a href="manage-users.php?id=<?php echo $row['userId']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"
+       class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+
+                                                    <a href="manage-users.php?aid=<?php echo $row['userId']?>&app=approved"
+                                                       onClick="return confirm('Are you sure you want to approved?')"
+                                                       class="btn btn-transparent btn-xs tooltips" title="Approved" tooltip-placement="top">
+                                                        <i class="fa fa-check-circle fa fa-white"></i></a>
 												</div>
 												<div class="visible-xs visible-sm hidden-md hidden-lg">
 													<div class="btn-group" dropdown is-open="status.isopen">

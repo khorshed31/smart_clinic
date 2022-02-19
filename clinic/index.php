@@ -1,3 +1,22 @@
+<?php
+include 'login/hms/include/config.php';
+if(isset($_POST['submit']))
+{
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+    $phone=$_POST['phone'];
+    $subject=$_POST['subject'];
+    $message=$_POST['message'];
+
+    $query=mysqli_query($con,"insert into message(name,email,phone,subject,message) values('$name','$email','$phone','$subject','$message')");
+    if($query)
+    {
+        echo "<script>alert('Your message successfully Submit');</script>";
+    }
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
    <!-- Basic -->
@@ -51,8 +70,7 @@
                         <span class="iconcont"><a data-scroll href="mailto:info@yoursite.com">admin@gmail.com</a></span>
                      </div>
                      <div class="info-inner">
-                        <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                        <span class="iconcont"><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span>	
+                         <a href="login/hms/registration.php" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Registration</a>
                      </div>
                   </div>
                </div>
@@ -77,18 +95,6 @@
                      </ul>
                   </div>
                </nav>
-               <div class="serch-bar">
-                  <div id="custom-search-input">
-                     <div class="input-group col-md-12">
-                        <input type="text" class="form-control input-lg" placeholder="Search" />
-                        <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                        </button>
-                        </span>
-                     </div>
-                  </div>
-               </div>
             </div>
          </div>
       </header>
@@ -148,7 +154,7 @@
          <div class="container">
             <div class="heading">
                <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
-               <h2>The Specialist Clinic</h2>
+               <h2>About Us</h2>
             </div>
             <!-- end title -->
             <div class="row">
@@ -228,49 +234,49 @@
                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="serv">
                            <span class="icon-service"><img src="images/service-icon1.png" alt="#" /></span>
-                           <h4>PREMIUM FACILITIES</h4>
+                           <h4>Ambulance Service</h4>
                            <p>Lorem Ipsum is simply dummy text of the printing.</p>
                         </div>
                      </div>
                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="serv">
                            <span class="icon-service"><img src="images/service-icon2.png" alt="#" /></span>
-                           <h4>LARGE LABORATORY</h4>
+                           <h4>Online Appointment Service</h4>
                            <p>Lorem Ipsum is simply dummy text of the printing.</p>
                         </div>
                      </div>
                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="serv">
                            <span class="icon-service"><img src="images/service-icon3.png" alt="#" /></span>
-                           <h4>DETAILED SPECIALIST</h4>
+                           <h4>Doctor Consultancy</h4>
                            <p>Lorem Ipsum is simply dummy text of the printing.</p>
                         </div>
                      </div>
                      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="serv">
                            <span class="icon-service"><img src="images/service-icon4.png" alt="#" /></span>
-                           <h4>CHILDREN CARE CENTER</h4>
+                           <h4>Online Help</h4>
                            <p>Lorem Ipsum is simply dummy text of the printing.</p>
                         </div>
                      </div>
-                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        <div class="serv">
-                           <span class="icon-service"><img src="images/service-icon5.png" alt="#" /></span>
-                           <h4>FINE INFRASTRUCTURE</h4>
-                           <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                        </div>
-                     </div>
-                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        <div class="serv">
-                           <span class="icon-service"><img src="images/service-icon6.png" alt="#" /></span>
-                           <h4>ANYTIME BLOOD BANK</h4>
-                           <p>Lorem Ipsum is simply dummy text of the printing.</p>
-                        </div>
-                     </div>
+<!--                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">-->
+<!--                        <div class="serv">-->
+<!--                           <span class="icon-service"><img src="images/service-icon5.png" alt="#" /></span>-->
+<!--                           <h4>FINE INFRASTRUCTURE</h4>-->
+<!--                           <p>Lorem Ipsum is simply dummy text of the printing.</p>-->
+<!--                        </div>-->
+<!--                     </div>-->
+<!--                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">-->
+<!--                        <div class="serv">-->
+<!--                           <span class="icon-service"><img src="images/service-icon6.png" alt="#" /></span>-->
+<!--                           <h4>ANYTIME BLOOD BANK</h4>-->
+<!--                           <p>Lorem Ipsum is simply dummy text of the printing.</p>-->
+<!--                        </div>-->
+<!--                     </div>-->
                   </div>
                </div>
                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                   <a href="login/" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Appointment Here</a>
+                   <a href="login/" data-scroll class="btn btn-light btn-radius btn-brd grd1 effect-1">Login Here</a>
                </div>
             </div>
          </div>
@@ -284,19 +290,27 @@
 		
 		<div class="heading">
                <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
-               <h2>The Specialist Clinic</h2>
+               <h2>Our Doctors</h2>
             </div>
 
             <div class="row dev-list text-center">
+                <?php
+                include 'login/hms/include/config.php';
+                $sql = mysqli_query($con, "SELECT * FROM doctors");
+                $cnt=1;
+                while($row=mysqli_fetch_array($sql))
+                {
+                ?>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
                     <div class="widget clearfix">
-                        <img src="images/doctor_01.jpg" alt="" class="img-responsive img-rounded">
+                        <img src="images/doc.png" alt="" class="img-responsive img-rounded">
                         <div class="widget-title">
-                            <h3>Soren Bo Bostian</h3>
-                            <small>Clinic Owner</small>
+                            <h3><?php echo $row['doctorName'];?></h3>
+                            <small><?php echo $row['specilization'];?></small>
                         </div>
                         <!-- end title -->
-                        <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
+                        <p>Phone: <?php echo $row['contactno'];?></p>
+                        <p>Email: <?php echo $row['docEmail'];?></p>
 
                         <div class="footer-social">
                             <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
@@ -306,45 +320,7 @@
                         </div>
                     </div><!--widget -->
                 </div><!-- end col -->
-
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeIn;">
-                    <div class="widget clearfix">
-                        <img src="images/doctor_02.jpg" alt="" class="img-responsive img-rounded">
-                        <div class="widget-title">
-                            <h3>Bryan Saftler</h3>
-                            <small>Internal Diseases</small>
-                        </div>
-                        <!-- end title -->
-                        <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
-
-                        <div class="footer-social">
-                            <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div><!--widget -->
-                </div><!-- end col -->
-
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn">
-                    <div class="widget clearfix">
-                        <img src="images/doctor_03.jpg" alt="" class="img-responsive img-rounded">
-                        <div class="widget-title">
-                            <h3>Matthew Bayliss</h3>
-                            <small>Orthopedics Expert</small>
-                        </div>
-                        <!-- end title -->
-                        <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
-
-                        <div class="footer-social">
-                            <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-github"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="btn grd1"><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div><!--widget -->
-                </div><!-- end col -->
-
+                <?php }?>
             </div><!-- end row -->
         </div><!-- end container -->
     </div>
@@ -562,31 +538,31 @@
          </div>
          <div class="contact-section">
             <div class="form-contant">
-               <form id="ajax-contact" action="assets/mailer.php" method="post">
+               <form id="ajax-contact" action="index.php" method="post">
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group in_name">
-                           <input type="text" class="form-control" placeholder="Name" required="required">
+                           <input type="text" class="form-control" name="name" placeholder="Name" required="required">
                         </div>
                      </div>
                      <div class="col-md-6">
                         <div class="form-group in_email">
-                           <input type="email" class="form-control" placeholder="E-mail" required="required">
+                           <input type="email" class="form-control" name="email" placeholder="E-mail" required="required">
                         </div>
                      </div>
                      <div class="col-md-6">
                         <div class="form-group in_email">
-                           <input type="tel" class="form-control" id="phone" placeholder="Phone" required="required">
+                           <input type="tel" class="form-control" name="phone" placeholder="Phone" required="required">
                         </div>
                      </div>
                      <div class="col-md-6">
                         <div class="form-group in_email">
-                           <input type="text" class="form-control" id="subject" placeholder="Subject" required="required">
+                           <input type="text" class="form-control" name="subject" placeholder="Subject" required="required">
                         </div>
                      </div>
                      <div class="col-md-12">
                         <div class="form-group in_message"> 
-                           <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required"></textarea>
+                           <textarea class="form-control" name="message" rows="5" placeholder="Message" required="required"></textarea>
                         </div>
                         <div class="actions">
                            <input type="submit" value="Send Message" name="submit" id="submitButton" class="btn small" title="Submit Your Message!">
@@ -595,7 +571,7 @@
                   </div>
                </form>
             </div>
-            <div id="googleMap" style="width:100%;height:450px;"></div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57044.40071096055!2d90.38511723844464!3d23.788647018827323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1645251633686!5m2!1sen!2sbd" width="100%" height="450" allowfullscreen="" loading="lazy"></iframe>
          </div>
       </div>
       <footer id="footer" class="footer-area wow fadeIn">

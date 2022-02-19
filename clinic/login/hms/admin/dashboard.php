@@ -4,12 +4,16 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
+$id = $_SESSION['id'];
+$sql=mysqli_query($con,"select * from admin where id = $id");
+$row=mysqli_fetch_array($sql);
 
+$status = $row['status'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Admin  | Dashboard</title>
+		<title><?php echo ($status == 1) ? 'Admin' : 'Sub Admin' ?>  | Dashboard</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -42,11 +46,11 @@ check_login();
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Admin | Dashboard</h1>
+									<h1 class="mainTitle"><?php echo ($status == 1) ? 'Admin' : 'Sub Admin' ?> | Dashboard</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
-										<span>Admin</span>
+										<span><?php echo ($status == 1) ? 'Admin' : 'Sub Admin' ?></span>
 									</li>
 									<li class="active">
 										<span>Dashboard</span>

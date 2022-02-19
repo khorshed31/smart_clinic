@@ -1,4 +1,15 @@
-<?php error_reporting(0);?>
+<?php
+error_reporting(0);
+session_start();
+include('config.php');
+
+$id = $_SESSION['id'];
+$sql=mysqli_query($con,"select * from admin where id = $id");
+$row=mysqli_fetch_array($sql);
+
+$status = $row['status'];
+
+?>
 <header class="navbar navbar-default navbar-static-top">
 					<!-- start: NAVBAR HEADER -->
 					<div class="navbar-header">
@@ -32,7 +43,7 @@
 
 
 
-			Admin
+			<?php echo ($status == 1) ? 'Admin' : 'Sub Admin' ?>
 									<i class="ti-angle-down"></i></i></span>
 								</a>
 								<ul class="dropdown-menu dropdown-dark">

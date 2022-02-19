@@ -4,7 +4,12 @@ session_start();
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
+$id = $_SESSION['id'];
 
+$sql=mysqli_query($con,"select * from users where userId = $id");
+$row=mysqli_fetch_array($sql);
+
+$status = $row['status'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +34,7 @@ check_login();
 
 	</head>
 	<body>
+    <?php if ($status == 1) {?>
 		<div id="app">		
 <?php include('include/sidebar.php');?>
 			<div class="app-content">
@@ -152,5 +158,8 @@ check_login();
 		</script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
+    <?php } else {?>
+    <h3 class="text-danger">Pending Registration...</h3>
+    <?php }?>
 	</body>
 </html>
