@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2022 at 01:59 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Feb 19, 2022 at 02:52 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,6 +31,7 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `status` int(100) NOT NULL,
   `updationDate` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -38,8 +39,9 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`, `updationDate`) VALUES
-(1, 'admin', 'Test@12345', '28-12-2016 11:42:05 AM');
+INSERT INTO `admin` (`id`, `username`, `password`, `status`, `updationDate`) VALUES
+(1, 'admin', 'Test@12345', 1, '28-12-2021 11:42:05 AM'),
+(2, 'subadmin', '123456', 0, '');
 
 -- --------------------------------------------------------
 
@@ -238,6 +240,29 @@ INSERT INTO `doctorspecilization` (`id`, `specilization`, `creationDate`, `updat
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `message`
+--
+
+CREATE TABLE `message` (
+  `mess_id` int(100) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` int(100) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`mess_id`, `name`, `email`, `phone`, `subject`, `message`) VALUES
+(1, 'Khorshed Alom', 'khorshedalom3517@gmail.com', 1303, 'test', 'demo'),
+(2, 'Khorshed Emon', 'khorshedemon066@gmail.com', 1303713906, 'test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis, turpis quis finibus pulvinar, arcu nisi placerat nibh, nec bibendum lectus odio vel libero. Cras vel ullamcorper leo. Quisque imperdiet bibendum lacus a mattis. Donec aliquam risus leo, eu vulputate orci molestie non. Pellentesque porta nunc sit amet libero ornare, eu pulvinar felis posuere. Donec ex augue, sollicitudin in malesuada in, mattis ac arcu. Integer vitae cursus elit. Vestibulum rutrum tincidunt dui, eget tincidunt odio ultricies eget. Nam euismod eros erat, eu fermentum justo pretium quis.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tblcontactus`
 --
 
@@ -365,7 +390,8 @@ INSERT INTO `userlog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logout`,
 (36, 10, 'faisal@gmail.com', 0x3132372e302e302e3100000000000000, '2022-01-27 17:03:21', NULL, 1),
 (37, 9, 'shaif@gmail.com', 0x3132372e302e302e3100000000000000, '2022-01-28 16:46:47', NULL, 1),
 (38, 8, 'emon@gmail.com', 0x3a3a3100000000000000000000000000, '2022-01-31 16:21:42', NULL, 1),
-(39, 9, 'shaif@gmail.com', 0x3132372e302e302e3100000000000000, '2022-02-08 13:34:47', NULL, 1);
+(39, 9, 'shaif@gmail.com', 0x3132372e302e302e3100000000000000, '2022-02-08 13:34:47', NULL, 1),
+(40, 9, 'shaif@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-19 13:42:16', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -382,17 +408,18 @@ CREATE TABLE `users` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `regDate` timestamp NULL DEFAULT current_timestamp(),
-  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `status` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userId`, `fullName`, `address`, `city`, `gender`, `email`, `password`, `regDate`, `updationDate`) VALUES
-(8, 'Khorshed Alom', 'Dhaka', 'Dhaka', 'male', 'emon@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-19 14:40:15', NULL),
-(9, 'Shaif Uddin', 'Dhaka', 'Dhaka', 'male', 'shaif@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-27 16:17:50', NULL),
-(10, 'Shaif Uddin Faisal', 'Dhaka', 'Dhaka', 'male', 'faisal@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-27 17:02:59', NULL);
+INSERT INTO `users` (`userId`, `fullName`, `address`, `city`, `gender`, `email`, `password`, `regDate`, `updationDate`, `status`) VALUES
+(8, 'Khorshed Alom', 'Dhaka', 'Dhaka', 'male', 'emon@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-19 14:40:15', '2022-02-19 12:56:59', 1),
+(9, 'Shaif Uddin', 'Dhaka', 'Dhaka', 'male', 'shaif@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-27 16:17:50', '2022-02-19 13:32:49', 0),
+(10, 'Shaif Uddin Faisal', 'Dhaka', 'Dhaka', 'male', 'faisal@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-27 17:02:59', '2022-02-19 13:24:00', 1);
 
 --
 -- Indexes for dumped tables
@@ -447,6 +474,12 @@ ALTER TABLE `doctorspecilization`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`mess_id`);
+
+--
 -- Indexes for table `tblcontactus`
 --
 ALTER TABLE `tblcontactus`
@@ -485,7 +518,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ambulance`
@@ -530,6 +563,12 @@ ALTER TABLE `doctorspecilization`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+  MODIFY `mess_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `tblcontactus`
 --
 ALTER TABLE `tblcontactus`
@@ -551,7 +590,7 @@ ALTER TABLE `tblpatient`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `users`
