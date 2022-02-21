@@ -2492,7 +2492,7 @@
 				if (index === 0){
 					segment.startAngle = Math.PI * 1.5;
 				}
-				//Check to see if it's the last segment, if not get the next and update the start angle
+				//Check to see if it's the last segment, if not get the next and upload the start angle
 				if (index < this.segments.length-1){
 					this.segments[index+1].startAngle = segment.endAngle;
 				}
@@ -3121,7 +3121,7 @@
 					segment.startAngle = Math.PI * 1.5;
 				}
 
-				//Check to see if it's the last segment, if not get the next and update the start angle
+				//Check to see if it's the last segment, if not get the next and upload the start angle
 				if (index < this.segments.length - 1){
 					this.segments[index+1].startAngle = segment.endAngle;
 				}

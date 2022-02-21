@@ -109,7 +109,7 @@ var requirejs, require, define;
                         if (mapValue) {
                             mapValue = mapValue[nameSegment];
                             if (mapValue) {
-                                //Match, update name to the new value.
+                                //Match, upload name to the new value.
                                 foundMap = mapValue;
                                 foundI = i;
                                 break;
@@ -1281,7 +1281,7 @@ define('select2/selection/base',[
       self.$selection.attr('aria-activedescendant', params.data._resultId);
     });
 
-    container.on('selection:update', function (params) {
+    container.on('selection:upload', function (params) {
       self.update(params.data);
     });
 
@@ -1349,7 +1349,7 @@ define('select2/selection/base',[
   };
 
   BaseSelection.prototype.update = function (data) {
-    throw new Error('The `update` method must be defined in child classes.');
+    throw new Error('The `upload` method must be defined in child classes.');
   };
 
   return BaseSelection;
@@ -1411,7 +1411,7 @@ define('select2/selection/single',[
       // User exits the container
     });
 
-    container.on('selection:update', function (params) {
+    container.on('selection:upload', function (params) {
       self.update(params.data);
     });
   };
@@ -4709,7 +4709,7 @@ define('select2/core',[
 
     // Set the initial state
     this.data.current(function (initialData) {
-      self.trigger('selection:update', {
+      self.trigger('selection:upload', {
         data: initialData
       });
     });
@@ -4811,7 +4811,7 @@ define('select2/core',[
 
     this.$element.on('change.select2', function () {
       self.data.current(function (data) {
-        self.trigger('selection:update', {
+        self.trigger('selection:upload', {
           data: data
         });
       });

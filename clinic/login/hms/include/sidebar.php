@@ -7,6 +7,12 @@
 						<div class="navbar-title">
 							<span>Main Navigation</span>
 						</div>
+    <?php $query=mysqli_query($con,"select image from users where userId='".$_SESSION['id']."'");
+    while($row=mysqli_fetch_array($query))
+    {?>
+        <img src="assets/images/upload/<?php echo $row['image']?>" alt="" width="65%">
+    <?php }
+    ?>
 						<ul class="main-navigation-menu">
 							<li>
 								<a href="dashboard.php">

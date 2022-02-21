@@ -252,7 +252,7 @@
 		
 		if( this._isOpen() ) {
 			if( this.current !== -1 ) {
-				// update placeholder text
+				// upload placeholder text
 				this.selPlaceholder.textContent = this.selOpts[ this.current ].textContent;
 			}
 			classie.remove( this.selEl, 'cs-active' );
@@ -279,7 +279,7 @@
 		// current option
 		var opt = this.selOpts[ this.current ];
 
-		// update current selected value
+		// upload current selected value
 		this.selPlaceholder.textContent = opt.textContent;
 		
 		// change native select elementÂ´s value

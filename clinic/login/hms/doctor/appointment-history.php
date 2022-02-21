@@ -6,7 +6,7 @@ include('include/checklogin.php');
 check_login();
 if(isset($_GET['cancel']))
 		  {
-mysqli_query($con,"update appointment set doctorStatus='0' where id ='".$_GET['id']."'");
+mysqli_query($con,"upload appointment set doctorStatus='0' where id ='".$_GET['id']."'");
                   $_SESSION['msg']="Appointment canceled !!";
 		  }
 ?>

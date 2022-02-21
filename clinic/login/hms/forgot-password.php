@@ -6,7 +6,7 @@ include("include/config.php");
 if(isset($_POST['submit'])){
 $name=$_POST['fullname'];
 $email=$_POST['email'];
-$query=mysqli_query($con,"select id from  users where fullName='$name' and email='$email'");
+$query=mysqli_query($con,"select * from  users where fullName='$name' and email='$email'");
 $row=mysqli_num_rows($query);
 if($row>0){
 
@@ -87,7 +87,7 @@ echo "<script>window.location.href ='forgot-password.php'</script>";
 					</form>
 
 					<div class="copyright">
-						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> HMS</span>. <span>All rights reserved</span>
+						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> CMS</span>. <span>All rights reserved</span>
 					</div>
 			
 				</div>

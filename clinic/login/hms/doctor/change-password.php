@@ -12,7 +12,7 @@ $sql=mysqli_query($con,"SELECT password FROM  doctors where password='".md5($_PO
 $num=mysqli_fetch_array($sql);
 if($num>0)
 {
- $con=mysqli_query($con,"update doctors set password='".md5($_POST['npass'])."', updationDate='$currentTime' where id='".$_SESSION['id']."'");
+ $con=mysqli_query($con,"upload doctors set password='".md5($_POST['npass'])."', updationDate='$currentTime' where id='".$_SESSION['id']."'");
 $_SESSION['msg1']="Password Changed Successfully !!";
 }
 else

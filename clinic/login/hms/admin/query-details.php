@@ -6,12 +6,12 @@ include('include/checklogin.php');
 check_login();
 
 //updating Admin Remark
-if(isset($_POST['update']))
+if(isset($_POST['upload']))
 		  {
 $qid=intval($_GET['id']);
 $adminremark=$_POST['adminremark'];
 $isread=1;
-$query=mysqli_query($con,"update tblcontactus set  AdminRemark='$adminremark',IsRead='$isread' where id='$qid'");
+$query=mysqli_query($con,"upload tblcontactus set  AdminRemark='$adminremark',IsRead='$isread' where id='$qid'");
 if($query){
 echo "<script>alert('Admin Remark updated successfully.');</script>";
 echo "<script>window.location.href ='read-query.php'</script>";

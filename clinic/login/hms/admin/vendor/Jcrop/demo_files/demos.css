@@ -2,7 +2,7 @@
    Not required to run Jcrop - contains twitter bootstrap code */
 /* To build these CSS files you must have LESS and run
  * $ git submodule init
- * $ git submodule update
+ * $ git submodule upload
  * ...to pull in the Twitter bootstrap files
  */
 .clearfix {

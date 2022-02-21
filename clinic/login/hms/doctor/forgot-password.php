@@ -6,7 +6,7 @@ include("include/config.php");
 if(isset($_POST['submit'])){
 $contactno=$_POST['contactno'];
 $email=$_POST['email'];
-$query=mysqli_query($con,"select id from  doctors where contactno='$contactno' and docEmail='$email'");
+$query=mysqli_query($con,"select * from  doctors where contactno='$contactno' and docEmail='$email'");
 $row=mysqli_num_rows($query);
 if($row>0){
 

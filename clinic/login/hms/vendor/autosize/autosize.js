@@ -100,7 +100,7 @@
 		window.addEventListener('resize', adjust);
 		ta.addEventListener('input', adjust);
 
-		ta.addEventListener('autosize.update', adjust);
+		ta.addEventListener('autosize.upload', adjust);
 
 		ta.addEventListener('autosize.destroy', function(style){
 			window.removeEventListener('resize', adjust);

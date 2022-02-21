@@ -8,7 +8,7 @@ $id=intval($_GET['id']);// get value
 if(isset($_POST['submit']))
 {
 $docspecialization=$_POST['doctorspecilization'];
-$sql=mysqli_query($con,"update  doctorSpecilization set specilization='$docspecialization' where id='$id'");
+$sql=mysqli_query($con,"upload  doctorSpecilization set specilization='$docspecialization' where id='$id'");
 $_SESSION['msg']="Doctor Specialization updated successfully !!";
 } 
 

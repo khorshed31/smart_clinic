@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2022 at 02:52 PM
+-- Generation Time: Feb 21, 2022 at 12:56 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -145,6 +145,7 @@ CREATE TABLE `doctors` (
   `address` longtext DEFAULT NULL,
   `docFees` varchar(255) DEFAULT NULL,
   `contactno` bigint(11) DEFAULT NULL,
+  `image` varchar(500) NOT NULL,
   `docEmail` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `creationDate` timestamp NULL DEFAULT current_timestamp(),
@@ -155,18 +156,18 @@ CREATE TABLE `doctors` (
 -- Dumping data for table `doctors`
 --
 
-INSERT INTO `doctors` (`doc_id`, `specilization`, `doctorName`, `address`, `docFees`, `contactno`, `docEmail`, `password`, `creationDate`, `updationDate`) VALUES
-(1, 'Dentist', 'Lyndon Bermoy', 'New Delhi', '500', 8285703354, 'anuj.lpu1@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2016-12-29 06:25:37', '2020-07-05 01:53:19'),
-(2, 'Homeopath', 'Sarita Pandey', 'Varanasi', '600', 2147483647, 'sarita@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2016-12-29 06:51:51', '0000-00-00 00:00:00'),
-(3, 'General Physician', 'Nitesh Kumar', 'Ghaziabad', '1200', 8523699999, 'nitesh@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:43:35', '0000-00-00 00:00:00'),
-(4, 'Homeopath', 'Vijay Verma', 'New Delhi', '700', 25668888, 'vijay@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:45:09', '0000-00-00 00:00:00'),
-(5, 'Ayurveda', 'Sanjeev', 'Gurugram', '8050', 442166644646, 'sanjeev@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:47:07', '0000-00-00 00:00:00'),
-(6, 'General Physician', 'Amrita', 'New Delhi India', '2500', 45497964, 'amrita@test.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:52:50', '0000-00-00 00:00:00'),
-(7, 'Demo test', 'abc ', 'New Delhi India', '200', 852888888, 'test@demo.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 08:08:58', '2019-06-23 18:17:25'),
-(8, 'Ayurveda', 'Test Doctor', 'Xyz Abc New Delhi', '600', 1234567890, 'test@test.com', '202cb962ac59075b964b07152d234b70', '2019-06-23 17:57:43', '2019-06-23 18:06:06'),
-(11, 'Physician', 'Jonah Juarez', 'Surigao Philippines', '2000', 123456789, 'jjuarez@gmail.com', '25f9e794323b453885f5181f1b624d0b', '2020-07-05 02:06:00', '2020-07-05 02:06:48'),
-(12, 'Gynecologist/Obstetrician', 'Tamal Das', 'Dhaka', '500', 123456780, 'tamal@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-19 14:42:31', NULL),
-(13, 'General Physician', 'Khorshed Alom', 'Dhaka', '500', 123456, 'emon@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-28 17:35:02', NULL);
+INSERT INTO `doctors` (`doc_id`, `specilization`, `doctorName`, `address`, `docFees`, `contactno`, `image`, `docEmail`, `password`, `creationDate`, `updationDate`) VALUES
+(1, 'Dentist', 'Lyndon Bermoy', 'New Delhi', '500', 8285703354, '', 'anuj.lpu1@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2016-12-29 06:25:37', '2020-07-05 01:53:19'),
+(2, 'Homeopath', 'Sarita Pandey', 'Varanasi', '600', 2147483647, '', 'sarita@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2016-12-29 06:51:51', '0000-00-00 00:00:00'),
+(3, 'General Physician', 'Nitesh Kumar', 'Ghaziabad', '1200', 8523699999, '', 'nitesh@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:43:35', '0000-00-00 00:00:00'),
+(4, 'Homeopath', 'Vijay Verma', 'New Delhi', '700', 25668888, '', 'vijay@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:45:09', '0000-00-00 00:00:00'),
+(5, 'Ayurveda', 'Sanjeev', 'Gurugram', '8050', 442166644646, '', 'sanjeev@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:47:07', '0000-00-00 00:00:00'),
+(6, 'General Physician', 'Amrita', 'New Delhi India', '2500', 45497964, '', 'amrita@test.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 07:52:50', '0000-00-00 00:00:00'),
+(7, 'Demo test', 'abc ', 'New Delhi India', '200', 852888888, '', 'test@demo.com', 'f925916e2754e5e03f75dd58a5733251', '2017-01-07 08:08:58', '2019-06-23 18:17:25'),
+(8, 'Ayurveda', 'Test Doctor', 'Xyz Abc New Delhi', '600', 1234567890, '', 'test@test.com', '202cb962ac59075b964b07152d234b70', '2019-06-23 17:57:43', '2019-06-23 18:06:06'),
+(11, 'Physician', 'Jonah Juarez', 'Surigao Philippines', '2000', 123456789, '', 'jjuarez@gmail.com', '25f9e794323b453885f5181f1b624d0b', '2020-07-05 02:06:00', '2020-07-05 02:06:48'),
+(12, 'Gynecologist/Obstetrician', 'Tamal Das', 'Dhaka', '500', 123456780, 'doc.png', 'tamal@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-19 14:42:31', '2022-02-21 06:49:31'),
+(13, 'General Physician', 'Khorshed Alom', 'Dhaka', '500', 123456, '', 'emon@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-28 17:35:02', NULL);
 
 -- --------------------------------------------------------
 
@@ -204,7 +205,9 @@ INSERT INTO `doctorslog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logou
 (32, 12, 'tamal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-01-28 16:47:11', NULL, 1),
 (33, 12, 'tamal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-01-28 17:32:27', NULL, 1),
 (34, 13, 'emon@gmail.com', 0x3a3a3100000000000000000000000000, '2022-01-28 17:35:22', '28-01-2022 11:11:04 PM', 1),
-(35, 12, 'tamal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-01-28 17:41:14', NULL, 1);
+(35, 12, 'tamal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-01-28 17:41:14', NULL, 1),
+(36, NULL, 'Amrita', 0x3a3a3100000000000000000000000000, '2022-02-20 17:00:17', NULL, 0),
+(37, 12, 'tamal@gmail.com', 0x3132372e302e302e3100000000000000, '2022-02-21 06:31:18', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -391,7 +394,11 @@ INSERT INTO `userlog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logout`,
 (37, 9, 'shaif@gmail.com', 0x3132372e302e302e3100000000000000, '2022-01-28 16:46:47', NULL, 1),
 (38, 8, 'emon@gmail.com', 0x3a3a3100000000000000000000000000, '2022-01-31 16:21:42', NULL, 1),
 (39, 9, 'shaif@gmail.com', 0x3132372e302e302e3100000000000000, '2022-02-08 13:34:47', NULL, 1),
-(40, 9, 'shaif@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-19 13:42:16', NULL, 0);
+(40, 9, 'shaif@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-19 13:42:16', NULL, 0),
+(41, 11, 'foysal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-19 16:02:22', '19-02-2022 09:44:48 PM', 0),
+(42, NULL, 'khorshed@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-20 12:15:47', NULL, 0),
+(43, 11, 'foysal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-20 12:15:59', NULL, 0),
+(44, 11, 'foysal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-21 05:40:43', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -407,6 +414,12 @@ CREATE TABLE `users` (
   `gender` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `image` varchar(500) NOT NULL,
+  `age` int(100) NOT NULL,
+  `blood` varchar(255) NOT NULL,
+  `phone` int(255) NOT NULL,
+  `height` int(255) NOT NULL,
+  `width` int(255) NOT NULL,
   `regDate` timestamp NULL DEFAULT current_timestamp(),
   `updationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
   `status` int(100) NOT NULL
@@ -416,10 +429,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userId`, `fullName`, `address`, `city`, `gender`, `email`, `password`, `regDate`, `updationDate`, `status`) VALUES
-(8, 'Khorshed Alom', 'Dhaka', 'Dhaka', 'male', 'emon@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-19 14:40:15', '2022-02-19 12:56:59', 1),
-(9, 'Shaif Uddin', 'Dhaka', 'Dhaka', 'male', 'shaif@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-27 16:17:50', '2022-02-19 13:32:49', 0),
-(10, 'Shaif Uddin Faisal', 'Dhaka', 'Dhaka', 'male', 'faisal@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-01-27 17:02:59', '2022-02-19 13:24:00', 1);
+INSERT INTO `users` (`userId`, `fullName`, `address`, `city`, `gender`, `email`, `password`, `image`, `age`, `blood`, `phone`, `height`, `width`, `regDate`, `updationDate`, `status`) VALUES
+(8, 'Khorshed Alom', 'Dhaka', 'Dhaka', 'male', 'emon@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', 0, '', 0, 0, 0, '2022-01-19 14:40:15', '2022-02-19 12:56:59', 1),
+(9, 'Shaif Uddin', 'Dhaka', 'Dhaka', 'male', 'shaif@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', 0, '', 0, 0, 0, '2022-01-27 16:17:50', '2022-02-19 13:32:49', 0),
+(10, 'Shaif Uddin Faisal', 'Dhaka', 'Dhaka', 'male', 'faisal@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', 0, '', 0, 0, 0, '2022-01-27 17:02:59', '2022-02-19 13:24:00', 1),
+(11, 'Foysal Ahamed', 'Jigatola', 'Dhaka', 'male', 'foysal@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '137-1378551_commerce-vector-cartoon-business-man-hq-image-free (2).png', 23, 'A+', 1716095649, 5, 59, '2022-02-19 16:01:44', '2022-02-21 06:12:05', 1);
 
 --
 -- Indexes for dumped tables
@@ -554,7 +568,7 @@ ALTER TABLE `doctors`
 -- AUTO_INCREMENT for table `doctorslog`
 --
 ALTER TABLE `doctorslog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `doctorspecilization`
@@ -590,13 +604,13 @@ ALTER TABLE `tblpatient`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

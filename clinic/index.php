@@ -295,7 +295,7 @@ if(isset($_POST['submit']))
 
             <div class="row dev-list text-center">
                 <?php
-                include 'login/hms/include/config.php';
+
                 $sql = mysqli_query($con, "SELECT * FROM doctors");
                 $cnt=1;
                 while($row=mysqli_fetch_array($sql))

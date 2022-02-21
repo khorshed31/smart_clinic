@@ -3302,12 +3302,12 @@
 			if(!obj || obj.id === '#') { return false; }
 			var i, j, m = this._model.data;
 			id = id.toString();
-			// update parents (replace current ID with new one in children and children_d)
+			// upload parents (replace current ID with new one in children and children_d)
 			m[obj.parent].children[$.inArray(obj.id, m[obj.parent].children)] = id;
 			for(i = 0, j = obj.parents.length; i < j; i++) {
 				m[obj.parents[i]].children_d[$.inArray(obj.id, m[obj.parents[i]].children_d)] = id;
 			}
-			// update children (replace current ID with new one in parent and parents)
+			// upload children (replace current ID with new one in parent and parents)
 			for(i = 0, j = obj.children.length; i < j; i++) {
 				m[obj.children[i]].parent = id;
 			}
@@ -3316,7 +3316,7 @@
 			}
 			i = $.inArray(obj.id, this._data.core.selected);
 			if(i !== -1) { this._data.core.selected[i] = id; }
-			// update model and obj itself (obj.id, this._model.data[KEY])
+			// upload model and obj itself (obj.id, this._model.data[KEY])
 			i = this.get_node(obj.id, true);
 			if(i) {
 				i.attr('id', id);
@@ -3791,14 +3791,14 @@
 				new_par.children_d.push(obj.id);
 				new_par.children_d = new_par.children_d.concat(obj.children_d);
 
-				// update object
+				// upload object
 				obj.parent = new_par.id;
 				tmp = new_par.parents.concat();
 				tmp.unshift(new_par.id);
 				p = obj.parents.length;
 				obj.parents = tmp;
 
-				// update object children
+				// upload object children
 				tmp = tmp.concat();
 				for(i = 0, j = obj.children_d.length; i < j; i++) {
 					this._model.data[obj.children_d[i]].parents = this._model.data[obj.children_d[i]].parents.slice(0,p*-1);

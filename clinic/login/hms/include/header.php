@@ -6,7 +6,7 @@
 							<i class="ti-align-justify"></i>
 						</a>
 						<a class="navbar-brand" href="#">
-							<img src="../../images/faviconn.png" alt="CMS"/>
+                            <h2 style="padding-top:20% ">CMS</h2>
 						</a>
 						<a href="#" class="sidebar-toggler pull-right visible-md visible-lg" data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
 							<i class="ti-align-justify"></i>
@@ -28,6 +28,7 @@
 						
 							<li class="dropdown current-user">
 								<a href class="dropdown-toggle" data-toggle="dropdown">
+
 									<img src="assets/images/images.jpg"> <span class="username">
 
 
@@ -40,6 +41,11 @@ while($row=mysqli_fetch_array($query))
 									?> <i class="ti-angle-down"></i></i></span>
 								</a>
 								<ul class="dropdown-menu dropdown-dark">
+                                    <li>
+                                        <a href="add-image.php">
+                                            Add Profile Pic
+                                        </a>
+                                    </li>
 									<li>
 										<a href="edit-profile.php">
 											My Profile

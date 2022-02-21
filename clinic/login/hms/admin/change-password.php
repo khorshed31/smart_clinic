@@ -12,7 +12,7 @@ $sql=mysqli_query($con,"SELECT password FROM  admin where password='".$_POST['cp
 $num=mysqli_fetch_array($sql);
 if($num>0)
 {
- $con=mysqli_query($con,"update admin set password='".$_POST['npass']."', updationDate='$currentTime' where username='".$_SESSION['login']."'");
+ $con=mysqli_query($con,"upload admin set password='".$_POST['npass']."', updationDate='$currentTime' where username='".$_SESSION['login']."'");
 $_SESSION['msg1']="Password Changed Successfully !!";
 }
 else

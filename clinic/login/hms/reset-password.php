@@ -8,7 +8,7 @@ if(isset($_POST['change']))
 $name=$_SESSION['name'];
 $email=$_SESSION['email'];
 $newpassword=md5($_POST['password']);
-$query=mysqli_query($con,"update users set password='$newpassword' where fullName='$name' and email='$email'");
+$query=mysqli_query($con,"upload users set password='$newpassword' where fullName='$name' and email='$email'");
 if ($query) {
 echo "<script>alert('Password successfully updated.');</script>";
 echo "<script>window.location.href ='user-login.php'</script>";

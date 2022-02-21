@@ -40,6 +40,11 @@ while($row=mysqli_fetch_array($query))
 									?> <i class="ti-angle-down"></i></i></span>
 								</a>
 								<ul class="dropdown-menu dropdown-dark">
+                                    <li>
+                                        <a href="add-image.php">
+                                            Add Profile Pic
+                                        </a>
+                                    </li>
 									<li>
 										<a href="edit-profile.php">
 											My Profile

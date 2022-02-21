@@ -52,7 +52,7 @@ smoothScroll.init({
     speed: 500, // Integer. How fast to complete the scroll in milliseconds
     easing: 'Linear', // Easing pattern to use
     offset: 90, // Integer. How far to offset the scrolling anchor location in pixels
-    updateURL: true, // Boolean. If true, update the URL hash on scroll
+    updateURL: true, // Boolean. If true, upload the URL hash on scroll
     callback: function ( anchor, toggle ) {} // Function to run after scrolling
 });
 
