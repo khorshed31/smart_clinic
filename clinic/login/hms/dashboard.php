@@ -108,9 +108,25 @@ $status = $row['status'];
 								</div>
 							</div>
 						</div>
-			
-					
-					
+                        <?php
+                        $sql = mysqli_query($con, "SELECT * FROM notice 
+                                left join doctors on doctors.doc_id = notice.doc_id");
+                        while($row=mysqli_fetch_array($sql))
+                        {
+                        ?>
+                        <div class="col-sm-8">
+                            <div class="panel panel-white no-radius text-center">
+                                <div class="panel-body">
+                                    <h2 class="StepTitle"> <?php echo $row['doctorName'] ?> (<?php echo $row['specilization'] ?>)</h2>
+
+                                    <p class="links cl-effect-1 text-warning">
+                                        <h3 class="text-warning"><?php echo $row['notice'] ?></h3>
+                                    </p>
+                                    <?php echo $row['created_at'] ?>
+                                </div>
+                            </div>
+                        </div>
+					<?php }?>
 						
 						
 					

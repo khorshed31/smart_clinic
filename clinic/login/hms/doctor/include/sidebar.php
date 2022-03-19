@@ -26,7 +26,18 @@
 									</div>
 								</a>
 							</li>
-							
+                            <li>
+                                <a href="add-notice.php">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-bookmark"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Notice </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
 
 							<li>
 								<a href="appointment-history.php">
