@@ -1,6 +1,4 @@
 <?php
-session_start();
-include 'config.php';
 $id = $_SESSION['id'];
 $sql=mysqli_query($con,"select * from admin where id = $id");
 $row=mysqli_fetch_array($sql);

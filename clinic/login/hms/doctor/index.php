@@ -95,7 +95,7 @@ exit();
 					</form>
 
 					<div class="copyright">
-						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> HMS</span>. <span>All rights reserved</span>
+						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> CMS</span>. <span>All rights reserved</span>
 					</div>
 			
 				</div>
@@ -119,7 +119,14 @@ exit();
 				Login.init();
 			});
 		</script>
-	
+        <script>
+            window.onload = function() {
+                if(!window.location.hash) {
+                    window.location = window.location + '#loaded';
+                    window.location.reload();
+                }
+            }
+        </script>
 	</body>
 	<!-- end: BODY -->
 </html>

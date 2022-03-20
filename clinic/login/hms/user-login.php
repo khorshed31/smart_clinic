@@ -42,8 +42,8 @@ exit();
 <html lang="en">
 	<head>
 		<title>User-Login</title>
-		
-		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="vendor/themify-icons/themify-icons.min.css">
@@ -124,7 +124,14 @@ exit();
 				Login.init();
 			});
 		</script>
-	
+       <script>
+           window.onload = function() {
+               if(!window.location.hash) {
+                   window.location = window.location + '#loaded';
+                   window.location.reload();
+               }
+           }
+       </script>
 	</body>
 	<!-- end: BODY -->
 </html>

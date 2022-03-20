@@ -13,7 +13,7 @@ if(isset($_GET['del']))
 
 if(isset($_GET['app'])){
 
-    mysqli_query($con,"upload users set status = 1 where userId = '".$_GET['aid']."'");
+    mysqli_query($con,"update users set status = 1 where userId = '".$_GET['aid']."'");
 }
 
 ?>

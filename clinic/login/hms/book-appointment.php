@@ -13,9 +13,10 @@ if(isset($_POST['submit']))
     $fees=$_POST['fees'];
     $appdate=$_POST['appdate'];
     $time=$_POST['apptime'];
+    $problem=$_POST['problem'];
     $userstatus=1;
     $docstatus=1;
-    $query=mysqli_query($con,"insert into appointment(doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
+    $query=mysqli_query($con,"insert into appointment(doctorSpecialization,doctorId,userId,consultancyFees,problem,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$specilization','$doctorid','$userid','$fees','$problem','$appdate','$time','$userstatus','$docstatus')");
     if($query)
     {
         echo "<script>alert('Your appointment successfully booked');</script>";
@@ -168,11 +169,16 @@ if(isset($_POST['submit']))
 
                                                 <div class="form-group">
                                                     <label for="Appointmenttime">
-
                                                         Time
-
                                                     </label>
                                                     <input class="form-control" name="apptime" id="timepicker1" required="required">eg : 10:00 PM
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>
+                                                        Problem
+                                                    </label>
+                                                    <textarea class="form-control" name="problem" required="required"></textarea>
                                                 </div>
 
                                                 <button type="submit" name="submit" class="btn btn-o btn-primary">
