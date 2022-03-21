@@ -4,22 +4,10 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-
-if(isset($_POST['submit']))
+if(isset($_GET['del']))
 {
-    $docid=$_SESSION['id'];
-    $notice=$_POST['notice'];
-    $sql=mysqli_query($con,"insert into notice(doc_id,notice) values('$docid','$notice')");
-    if($sql)
-    {
-        echo "<script>alert('Notice added Successfully');</script>";
-        header('location:add-notice.php');
-
-    }
-    else{
-
-        echo 'Null';
-    }
+    mysqli_query($con,"delete from notice where id = '".$_GET['id']."'");
+    $_SESSION['msg']="data deleted !!";
 }
 ?>
 <!DOCTYPE html>
@@ -29,7 +17,7 @@ if(isset($_POST['submit']))
     $query = mysqli_query($con, "select doctorName from doctors where doc_id='" . $_SESSION['id'] . "'");
     while ($row = mysqli_fetch_array($query)) { ?>
 
-        <title><?php echo $row['doctorName']; ?> | Add Notice</title>
+        <title><?php echo $row['doctorName']; ?> | Appointment</title>
         <?php
     }
 
@@ -49,79 +37,99 @@ if(isset($_POST['submit']))
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/plugins.css">
     <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-
 </head>
 <body>
 <div id="app">
     <?php include('include/sidebar.php');?>
     <div class="app-content">
-        <?php include('include/header.php');?>
 
+
+        <?php include('include/header.php');?>
+        <!-- end: TOP NAVBAR -->
         <div class="main-content" >
             <div class="wrap-content container" id="container">
                 <!-- start: PAGE TITLE -->
                 <section id="page-title">
                     <div class="row">
                         <div class="col-sm-8">
-                            <h1 class="mainTitle">Notice | Add Notice</h1>
+                            <h1 class="mainTitle">Doctor  | Notice</h1>
                         </div>
                         <ol class="breadcrumb">
                             <li>
-                                <span>Notice</span>
+                                <span>Doctor </span>
                             </li>
                             <li class="active">
-                                <span>Add Notice</span>
+                                <span>Notice</span>
                             </li>
                         </ol>
                     </div>
                 </section>
+                <!-- end: PAGE TITLE -->
+                <!-- start: BASIC EXAMPLE -->
                 <div class="container-fluid container-fullw bg-white">
+
+
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="row margin-top-30">
-                                <div class="col-lg-8 col-md-12">
-                                    <div class="panel panel-white">
-                                        <div class="panel-heading">
-                                            <h5 class="panel-title">Add Notice</h5>
-                                        </div>
-                                        <div class="panel-body">
-                                            <form role="form" action="add-notice.php" method="post">
 
-                                                <div class="form-group">
-                                                    <label for="address">
-                                                        Notice Box
-                                                    </label>
-                                                    <textarea name="notice" class="form-control" rows="5" placeholder="Enter Notice" required="true"></textarea>
-                                                </div>
+                            <p style="color:red;"><?php echo htmlentities($_SESSION['msg']);?>
+                                <?php echo htmlentities($_SESSION['msg']="");?></p>
+                            <table class="table table-hover" id="sample-table-1">
+                                <thead>
+                                <tr>
+                                    <th class="center">#</th>
+                                    <th>Notice</th>
+                                    <th>Action</th>
 
-                                                <button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
-                                                    Add
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="panel panel-white">
-                            </div>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $sql=mysqli_query($con,"select * from notice where doc_id='" . $_SESSION['id'] . "'");
+                                $cnt=1;
+                                while($row=mysqli_fetch_array($sql))
+                                {
+                                    ?>
+
+                                    <tr>
+                                        <td class="center"><?php echo $cnt;?>.</td>
+                                        <td class="hidden-xs"><?php echo $row['notice'];?></td>
+                                        <td >
+                                            <div class="visible-md visible-lg hidden-sm hidden-xs">
+
+
+                                                <a href="manage-notice.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"
+                                                   class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <?php
+                                    $cnt=$cnt+1;
+                                }?>
+
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
+
+                <!-- end: BASIC EXAMPLE -->
+                <!-- end: SELECT BOXES -->
+
             </div>
         </div>
     </div>
-</div>
-</div>
-<!-- start: FOOTER -->
-<?php include('include/footer.php');?>
-<!-- end: FOOTER -->
+    <!-- start: FOOTER -->
+    <?php include('include/footer.php');?>
+    <!-- end: FOOTER -->
 
-<!-- start: SETTINGS -->
-<?php include('include/setting.php');?>
+    <!-- start: SETTINGS -->
+    <?php include('include/setting.php');?>
 
-<!-- end: SETTINGS -->
+    <!-- end: SETTINGS -->
 </div>
 <!-- start: MAIN JAVASCRIPTS -->
 <script src="vendor/jquery/jquery.min.js"></script>

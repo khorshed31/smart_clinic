@@ -27,16 +27,30 @@
 								</a>
 							</li>
                             <li>
-                                <a href="add-notice.php">
+                                <a href="javascript:void(0)">
                                     <div class="item-content">
                                         <div class="item-media">
                                             <i class="ti-bookmark"></i>
                                         </div>
                                         <div class="item-inner">
-                                            <span class="title"> Notice </span>
+                                            <span class="title"> Notice </span><i class="icon-arrow"></i>
                                         </div>
                                     </div>
                                 </a>
+                                <ul class="sub-menu">
+
+                                    <li>
+                                        <a href="add-notice.php">
+                                            <span class="title"> Add Notice</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="manage-notice.php">
+                                            <span class="title"> Manage Notice </span>
+                                        </a>
+                                    </li>
+
+                                </ul>
                             </li>
 
 							<li>
