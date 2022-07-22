@@ -7,6 +7,7 @@ check_login();
 
 if(isset($_POST['submit']))
 {
+    
     $docid=$_SESSION['id'];
     $patname=$_POST['p_name'];
     $patcontact=$_POST['patcontact'];
@@ -15,6 +16,7 @@ if(isset($_POST['submit']))
     $pataddress=$_POST['pataddress'];
     $patage=$_POST['patage'];
     $medhis=$_POST['medhis'];
+    
     $sql=mysqli_query($con,"insert into tblpatient(Docid,userId,PatientContno,PatientEmail,PatientGender,PatientAdd,PatientAge,PatientMedhis) values('$docid','$patname','$patcontact','$patemail','$gender','$pataddress','$patage','$medhis')");
     if($sql)
     {

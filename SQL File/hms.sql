@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2022 at 12:56 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Jul 22, 2022 at 02:52 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,8 +40,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `status`, `updationDate`) VALUES
-(1, 'admin', 'Test@12345', 1, '28-12-2021 11:42:05 AM'),
-(2, 'subadmin', '123456', 0, '');
+(1, 'admin', '123456', 1, '28-12-2021 11:42:05 AM'),
+(2, 'subadmin', '123456', 0, ''),
+(3, 'qwqw', '123456', 0, '');
 
 -- --------------------------------------------------------
 
@@ -125,13 +126,6 @@ CREATE TABLE `book_amb` (
   `amb_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `book_amb`
---
-
-INSERT INTO `book_amb` (`book_amb_id`, `userId`, `amb_id`) VALUES
-(6, 9, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -207,7 +201,10 @@ INSERT INTO `doctorslog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logou
 (34, 13, 'emon@gmail.com', 0x3a3a3100000000000000000000000000, '2022-01-28 17:35:22', '28-01-2022 11:11:04 PM', 1),
 (35, 12, 'tamal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-01-28 17:41:14', NULL, 1),
 (36, NULL, 'Amrita', 0x3a3a3100000000000000000000000000, '2022-02-20 17:00:17', NULL, 0),
-(37, 12, 'tamal@gmail.com', 0x3132372e302e302e3100000000000000, '2022-02-21 06:31:18', NULL, 1);
+(37, 12, 'tamal@gmail.com', 0x3132372e302e302e3100000000000000, '2022-02-21 06:31:18', NULL, 1),
+(38, 13, 'emon@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-22 12:34:57', '22-07-2022 06:05:47 PM', 1),
+(39, 13, 'emon@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-22 12:39:46', '22-07-2022 06:10:09 PM', 1),
+(40, 12, 'tamal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-22 12:40:18', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -262,6 +259,25 @@ CREATE TABLE `message` (
 INSERT INTO `message` (`mess_id`, `name`, `email`, `phone`, `subject`, `message`) VALUES
 (1, 'Khorshed Alom', 'khorshedalom3517@gmail.com', 1303, 'test', 'demo'),
 (2, 'Khorshed Emon', 'khorshedemon066@gmail.com', 1303713906, 'test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis, turpis quis finibus pulvinar, arcu nisi placerat nibh, nec bibendum lectus odio vel libero. Cras vel ullamcorper leo. Quisque imperdiet bibendum lacus a mattis. Donec aliquam risus leo, eu vulputate orci molestie non. Pellentesque porta nunc sit amet libero ornare, eu pulvinar felis posuere. Donec ex augue, sollicitudin in malesuada in, mattis ac arcu. Integer vitae cursus elit. Vestibulum rutrum tincidunt dui, eget tincidunt odio ultricies eget. Nam euismod eros erat, eu fermentum justo pretium quis.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notice`
+--
+
+CREATE TABLE `notice` (
+  `id` int(11) NOT NULL,
+  `doc_id` int(11) NOT NULL,
+  `notice` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notice`
+--
+
+INSERT INTO `notice` (`id`, `doc_id`, `notice`) VALUES
+(1, 12, 'arrsads');
 
 -- --------------------------------------------------------
 
@@ -355,7 +371,10 @@ INSERT INTO `tblpatient` (`ID`, `Docid`, `userId`, `PatientContno`, `PatientEmai
 (5, 9, 0, 1234567890, 'john@test.com', 'male', 'Test ', 25, 'THis is sample text for testing.', '2019-11-10 18:49:24', NULL),
 (6, 0, 0, 123456789, 'serbermz2020@gmail.com', 'male', 'Surigao Philippines', 35, 'Diagnosed of High Blood Pressure', '2020-07-05 02:08:09', NULL),
 (7, 1, 8, 123456789, 'emon@gmail.com', 'male', 'Dhaka', 29, 'test', '2022-01-27 16:13:07', '2022-01-28 17:58:10'),
-(8, 12, 9, 123456, 'shaif@gmail.com', 'male', 'Dhaka', 23, 'test', '2022-01-28 16:48:20', '2022-01-28 17:57:55');
+(8, 12, 9, 123456, 'shaif@gmail.com', 'male', 'Dhaka', 23, 'test', '2022-01-28 16:48:20', '2022-01-28 17:57:55'),
+(9, 12, 9, 9, '9', 'male', 'weewe', 9, 'we', '2022-07-22 12:40:48', NULL),
+(10, 12, 8, 8, '8', 'male', 'e', 8, 'wewew', '2022-07-22 12:41:02', NULL),
+(11, 12, 8, 8, '8', 'male', 'rewqr', 8, 'weqrw', '2022-07-22 12:48:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -398,7 +417,8 @@ INSERT INTO `userlog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logout`,
 (41, 11, 'foysal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-19 16:02:22', '19-02-2022 09:44:48 PM', 0),
 (42, NULL, 'khorshed@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-20 12:15:47', NULL, 0),
 (43, 11, 'foysal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-20 12:15:59', NULL, 0),
-(44, 11, 'foysal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-21 05:40:43', NULL, 0);
+(44, 11, 'foysal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-21 05:40:43', NULL, 0),
+(45, 9, 'shaif@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-22 12:36:18', '22-07-2022 06:08:51 PM', 0);
 
 -- --------------------------------------------------------
 
@@ -431,7 +451,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`userId`, `fullName`, `address`, `city`, `gender`, `email`, `password`, `image`, `age`, `blood`, `phone`, `height`, `width`, `regDate`, `updationDate`, `status`) VALUES
 (8, 'Khorshed Alom', 'Dhaka', 'Dhaka', 'male', 'emon@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', 0, '', 0, 0, 0, '2022-01-19 14:40:15', '2022-02-19 12:56:59', 1),
-(9, 'Shaif Uddin', 'Dhaka', 'Dhaka', 'male', 'shaif@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', 0, '', 0, 0, 0, '2022-01-27 16:17:50', '2022-02-19 13:32:49', 0),
+(9, 'Shaif Uddin', 'Dhaka', 'Dhaka', 'male', 'shaif@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', 0, '', 0, 0, 0, '2022-01-27 16:17:50', '2022-07-22 12:36:33', 1),
 (10, 'Shaif Uddin Faisal', 'Dhaka', 'Dhaka', 'male', 'faisal@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', 0, '', 0, 0, 0, '2022-01-27 17:02:59', '2022-02-19 13:24:00', 1),
 (11, 'Foysal Ahamed', 'Jigatola', 'Dhaka', 'male', 'foysal@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '137-1378551_commerce-vector-cartoon-business-man-hq-image-free (2).png', 23, 'A+', 1716095649, 5, 59, '2022-02-19 16:01:44', '2022-02-21 06:12:05', 1);
 
@@ -494,6 +514,12 @@ ALTER TABLE `message`
   ADD PRIMARY KEY (`mess_id`);
 
 --
+-- Indexes for table `notice`
+--
+ALTER TABLE `notice`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tblcontactus`
 --
 ALTER TABLE `tblcontactus`
@@ -532,7 +558,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ambulance`
@@ -556,7 +582,7 @@ ALTER TABLE `blood`
 -- AUTO_INCREMENT for table `book_amb`
 --
 ALTER TABLE `book_amb`
-  MODIFY `book_amb_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `book_amb_id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `doctors`
@@ -568,7 +594,7 @@ ALTER TABLE `doctors`
 -- AUTO_INCREMENT for table `doctorslog`
 --
 ALTER TABLE `doctorslog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `doctorspecilization`
@@ -581,6 +607,12 @@ ALTER TABLE `doctorspecilization`
 --
 ALTER TABLE `message`
   MODIFY `mess_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `notice`
+--
+ALTER TABLE `notice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tblcontactus`
@@ -598,13 +630,13 @@ ALTER TABLE `tblmedicalhistory`
 -- AUTO_INCREMENT for table `tblpatient`
 --
 ALTER TABLE `tblpatient`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `users`
