@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2022 at 02:52 PM
+-- Generation Time: Jul 23, 2022 at 03:51 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -63,7 +63,7 @@ CREATE TABLE `ambulance` (
 
 INSERT INTO `ambulance` (`amb_id`, `number`, `s_time`, `e_time`) VALUES
 (2, 0, '09:00', '11:00'),
-(3, 12, '00:00', '15:00');
+(3, 11, '00:00', '15:00');
 
 -- --------------------------------------------------------
 
@@ -77,6 +77,7 @@ CREATE TABLE `appointment` (
   `doctorId` int(11) DEFAULT NULL,
   `userId` int(11) DEFAULT NULL,
   `consultancyFees` int(11) DEFAULT NULL,
+  `problem` varchar(255) NOT NULL,
   `appointmentDate` varchar(255) DEFAULT NULL,
   `appointmentTime` varchar(255) DEFAULT NULL,
   `postingDate` timestamp NULL DEFAULT current_timestamp(),
@@ -89,18 +90,19 @@ CREATE TABLE `appointment` (
 -- Dumping data for table `appointment`
 --
 
-INSERT INTO `appointment` (`id`, `doctorSpecialization`, `doctorId`, `userId`, `consultancyFees`, `appointmentDate`, `appointmentTime`, `postingDate`, `userStatus`, `doctorStatus`, `updationDate`) VALUES
-(3, 'Demo test', 7, 6, 600, '2019-06-29', '9:15 AM', '2019-06-23 18:31:28', 1, 0, '0000-00-00 00:00:00'),
-(4, 'Ayurveda', 5, 5, 8050, '2019-11-08', '1:00 PM', '2019-11-05 10:28:54', 1, 1, '0000-00-00 00:00:00'),
-(5, 'Dermatologist', 9, 7, 500, '2019-11-30', '5:30 PM', '2019-11-10 18:41:34', 1, 0, '2019-11-10 18:48:30'),
-(6, 'Physician', 11, 2, 2000, '2020-07-14', '10:15 AM', '2020-07-05 02:12:37', 1, 1, NULL),
-(7, 'General Physician', 3, 2, 1200, '2020-07-05', '10:15 AM', '2020-07-05 02:14:49', 1, 1, NULL),
-(8, 'Gynecologist/Obstetrician', 12, 8, 500, '2022-01-19', '8:45 PM', '2022-01-19 14:44:28', 1, 1, NULL),
-(9, 'Gynecologist/Obstetrician', 12, 8, 500, '2022-01-25', '9:15 PM', '2022-01-26 15:11:53', 1, 0, '2022-01-28 16:47:26'),
-(10, 'Dentist', 1, 8, 500, '2022-01-27', '9:15 PM', '2022-01-26 15:13:00', 1, 1, '2022-01-26 15:19:45'),
-(11, 'Dentist', 1, 0, 500, '2022-01-28', '10:30 PM', '2022-01-27 16:30:00', 1, 1, NULL),
-(12, 'Gynecologist/Obstetrician', 12, 0, 500, '2022-01-25', '11:00 PM', '2022-01-27 16:54:58', 1, 1, NULL),
-(13, 'Gynecologist/Obstetrician', 12, 9, 500, '2022-01-27', '11:00 PM', '2022-01-28 16:47:44', 1, 1, NULL);
+INSERT INTO `appointment` (`id`, `doctorSpecialization`, `doctorId`, `userId`, `consultancyFees`, `problem`, `appointmentDate`, `appointmentTime`, `postingDate`, `userStatus`, `doctorStatus`, `updationDate`) VALUES
+(3, 'Demo test', 7, 6, 600, '', '2019-06-29', '9:15 AM', '2019-06-23 18:31:28', 1, 0, '0000-00-00 00:00:00'),
+(4, 'Ayurveda', 5, 5, 8050, '', '2019-11-08', '1:00 PM', '2019-11-05 10:28:54', 1, 1, '0000-00-00 00:00:00'),
+(5, 'Dermatologist', 9, 7, 500, '', '2019-11-30', '5:30 PM', '2019-11-10 18:41:34', 1, 0, '2019-11-10 18:48:30'),
+(6, 'Physician', 11, 2, 2000, '', '2020-07-14', '10:15 AM', '2020-07-05 02:12:37', 1, 1, NULL),
+(7, 'General Physician', 3, 2, 1200, '', '2020-07-05', '10:15 AM', '2020-07-05 02:14:49', 1, 1, NULL),
+(8, 'Gynecologist/Obstetrician', 12, 8, 500, '', '2022-01-19', '8:45 PM', '2022-01-19 14:44:28', 1, 1, NULL),
+(9, 'Gynecologist/Obstetrician', 12, 8, 500, '', '2022-01-25', '9:15 PM', '2022-01-26 15:11:53', 1, 0, '2022-01-28 16:47:26'),
+(10, 'Dentist', 1, 8, 500, '', '2022-01-27', '9:15 PM', '2022-01-26 15:13:00', 1, 1, '2022-01-26 15:19:45'),
+(11, 'Dentist', 1, 0, 500, '', '2022-01-28', '10:30 PM', '2022-01-27 16:30:00', 1, 1, NULL),
+(12, 'Gynecologist/Obstetrician', 12, 0, 500, '', '2022-01-25', '11:00 PM', '2022-01-27 16:54:58', 1, 1, NULL),
+(13, 'Gynecologist/Obstetrician', 12, 9, 500, '', '2022-01-27', '11:00 PM', '2022-01-28 16:47:44', 1, 1, NULL),
+(14, 'Gynecologist/Obstetrician', 12, 8, 500, 'qwer', '2022-07-26', '7:45 PM', '2022-07-23 13:37:09', 0, 1, '2022-07-23 13:44:17');
 
 -- --------------------------------------------------------
 
@@ -125,6 +127,13 @@ CREATE TABLE `book_amb` (
   `userId` int(100) NOT NULL,
   `amb_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `book_amb`
+--
+
+INSERT INTO `book_amb` (`book_amb_id`, `userId`, `amb_id`) VALUES
+(1, 8, 3);
 
 -- --------------------------------------------------------
 
@@ -204,7 +213,8 @@ INSERT INTO `doctorslog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logou
 (37, 12, 'tamal@gmail.com', 0x3132372e302e302e3100000000000000, '2022-02-21 06:31:18', NULL, 1),
 (38, 13, 'emon@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-22 12:34:57', '22-07-2022 06:05:47 PM', 1),
 (39, 13, 'emon@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-22 12:39:46', '22-07-2022 06:10:09 PM', 1),
-(40, 12, 'tamal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-22 12:40:18', NULL, 1);
+(40, 12, 'tamal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-22 12:40:18', '22-07-2022 06:25:20 PM', 1),
+(41, 12, 'tamal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-23 13:47:50', '23-07-2022 07:18:10 PM', 1);
 
 -- --------------------------------------------------------
 
@@ -277,7 +287,8 @@ CREATE TABLE `notice` (
 --
 
 INSERT INTO `notice` (`id`, `doc_id`, `notice`) VALUES
-(1, 12, 'arrsads');
+(1, 12, 'arrsads'),
+(2, 12, 'wqew');
 
 -- --------------------------------------------------------
 
@@ -418,7 +429,10 @@ INSERT INTO `userlog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logout`,
 (42, NULL, 'khorshed@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-20 12:15:47', NULL, 0),
 (43, 11, 'foysal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-20 12:15:59', NULL, 0),
 (44, 11, 'foysal@gmail.com', 0x3a3a3100000000000000000000000000, '2022-02-21 05:40:43', NULL, 0),
-(45, 9, 'shaif@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-22 12:36:18', '22-07-2022 06:08:51 PM', 0);
+(45, 9, 'shaif@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-22 12:36:18', '22-07-2022 06:08:51 PM', 0),
+(46, 8, 'emon@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-23 13:24:15', '23-07-2022 07:15:03 PM', 0),
+(47, 8, 'emon@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-23 13:45:15', '23-07-2022 07:16:12 PM', 0),
+(48, 8, 'emon@gmail.com', 0x3a3a3100000000000000000000000000, '2022-07-23 13:48:19', '23-07-2022 07:18:35 PM', 0);
 
 -- --------------------------------------------------------
 
@@ -570,7 +584,7 @@ ALTER TABLE `ambulance`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `blood`
@@ -582,7 +596,7 @@ ALTER TABLE `blood`
 -- AUTO_INCREMENT for table `book_amb`
 --
 ALTER TABLE `book_amb`
-  MODIFY `book_amb_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `book_amb_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `doctors`
@@ -594,7 +608,7 @@ ALTER TABLE `doctors`
 -- AUTO_INCREMENT for table `doctorslog`
 --
 ALTER TABLE `doctorslog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `doctorspecilization`
@@ -612,7 +626,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `notice`
 --
 ALTER TABLE `notice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tblcontactus`
@@ -636,7 +650,7 @@ ALTER TABLE `tblpatient`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `users`
