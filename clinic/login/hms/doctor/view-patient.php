@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
    $pres=$_POST['pres'];
    $doc_id = $_SESSION['id'];
  
-      $query.=mysqli_query($con, "insert   tblmedicalhistory(PatientID,doc_id,BloodPressure,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$doc_id','$bp','$bs','$weight','$temp','$pres')");
+      $query.=mysqli_query($con, "insert into tblmedicalhistory(PatientID,doc_id,BloodPressure,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$doc_id','$bp','$bs','$weight','$temp','$pres')");
     if ($query) {
     echo '<script>alert("Medicle history has been added.")</script>';
     echo "<script>window.location.href ='manage-patient.php'</script>";
@@ -79,7 +79,7 @@ if(isset($_POST['submit']))
 <?php
                                $vid=$_GET['viewid'];
                                $ret=mysqli_query($con,"select * from tblpatient 
-left join users on users.userId = tblpatient.userId where tblpatient.userId='$vid'");
+left join users on users.userId = tblpatient.userId where tblpatient.userId='$vid'and tblpatient.Docid = '".$_SESSION['id']."'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
                                ?>

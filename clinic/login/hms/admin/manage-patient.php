@@ -69,14 +69,14 @@ check_login();
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"select * from tblpatient");
+$sql=mysqli_query($con,"select * from tblpatient join users on tblpatient.userId = users.userId ");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
 ?>
 <tr>
 <td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
+<td class="hidden-xs"><?php echo $row['fullName'];?></td>
 <td><?php echo $row['PatientContno'];?></td>
 <td><?php echo $row['PatientGender'];?></td>
 <td><?php echo $row['CreationDate'];?></td>

@@ -8,7 +8,7 @@ if(!empty($_POST["p_name"]))
     <?php
     while($row=mysqli_fetch_array($sql))
     {?>
-        <option value="<?php echo htmlentities($row['userId']); ?>"><?php echo htmlentities($row['email']); ?></option>
+        <option value="<?php echo htmlentities($row['email']); ?>"><?php echo htmlentities($row['email']); ?></option>
         <?php
     }
 }
@@ -20,7 +20,7 @@ if(!empty($_POST["uid"]))
     <?php
     while($row=mysqli_fetch_array($sql))
     {?>
-        <option value="<?php echo htmlentities($row['userId']); ?>"><?php echo htmlentities($row['age']); ?></option>
+        <option value="<?php echo htmlentities($row['age']); ?>"><?php echo htmlentities($row['age']); ?></option>
         <?php
     }
 }
@@ -31,7 +31,7 @@ if(!empty($_POST["uuid"]))
     <?php
     while($row=mysqli_fetch_array($sql))
     {?>
-        <option value="<?php echo htmlentities($row['userId']); ?>"><?php echo htmlentities($row['phone']); ?></option>
+        <option value="<?php echo htmlentities($row['phone']); ?>"><?php echo htmlentities($row['phone']); ?></option>
         <?php
     }
 }
